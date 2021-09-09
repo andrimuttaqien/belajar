@@ -1,17 +1,18 @@
-var angka   =parseInt(prompt("Masukan Angka : \n (harus angka)"));
+let angka   =parseInt(prompt("Masukan Angka : \n (harus angka)"));
 switch(angka) {
     case 1:
         alert("Anda Memasukan Angkat " +angka);
         break;
     default:
-        alert("Anda Memasukan Angka");
+        alert("Anda Memasukan Angka : ");
         break;
 }
-var jumlahAngkot = 10;
-var angkotBerjalan = 4;
-var angkot = 1;
 
-for (var angkot; angkot <= jumlahAngkot; angkot++) {
+let jumlahAngkot    = 10;
+let angkotBerjalan  = 4;
+let angkot          = 1;
+
+for (angkot; angkot <= jumlahAngkot; angkot++) {
     if (angkot <= angkotBerjalan) {
         console.log("Angkot No. " + angkot + " Berjalan dengan Baik");
     } else if ((angkot === 5) || (angkot === 8) || (angkot === 10)) {

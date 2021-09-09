@@ -16,6 +16,7 @@
 // - Memudahkan penulusuran kode
 // - Dapat digunakan kembali (reusablelity)
 // Sudo Variable Argument
+
 let a = parseInt(prompt("Masukan nilai ke-1 : "));
 let b = parseInt(prompt("Masukan nilai ke-2 : "));
 
@@ -23,9 +24,10 @@ function hitung(a, b) {
     let c = a + b;
     return c;
 }
-let c = hitung(a, b);
+c = hitung(a, b);
 alert(c);
 console.log(hitung(1, 2));
+
 function hitungKubus(a, b) {
     let volumeKubusA;
     let volumeKubusB
