@@ -1,0 +1,21 @@
+[{
+        "nama": "Andri",
+        "umur": 31,
+        "menikah": true,
+        "hobi": ["gaming", "motor"],
+        "anak": {
+            "ke-1": "arya",
+            "ke-2": "arga"
+        }
+    },
+    {
+        "nama": "Aryyani",
+        "umur": 31,
+        "menikah": true,
+        "hobi": ["tidur", "nonton"],
+        "anak": {
+            "ke-1": "arya",
+            "ke-2": "arga"
+        }
+    }
+]
