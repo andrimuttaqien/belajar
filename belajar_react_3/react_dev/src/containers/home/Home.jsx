@@ -44,6 +44,9 @@ class Home extends Component {
                 this.getPostApi()
             })
     }
+    handleOnChange = (event) => {
+        console.log('test', event)
+    }
     render() {
         return (
             <Fragment>
@@ -67,6 +70,13 @@ class Home extends Component {
                             <h1>Blog Post</h1>
                         </div>
                         <div className="content">
+                            <div className="form">
+                                <label htmlFor="title">Title</label>
+                                <input type="text" name="title" onChange={this.handleOnChange} />
+                                <label htmlFor="body">Body</label>
+                                <textarea name="body" id="body" cols="30" rows="10" onChange={this.handleOnChange}></textarea>
+                                <input type="submit" value="Submit" />
+                            </div>
                             {
                                 this.state.post.map(post => {
                                     return (
