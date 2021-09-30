@@ -300,7 +300,6 @@ iframe {
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    color: white;
     background-color: red;
     font-weight: bold;
 }
@@ -313,7 +312,6 @@ iframe {
     position: absolute;
     left: 350px;
     top: -40px;
-    color: white;
     background-color: blue;
     border: 3px solid white;
     display: flex;
@@ -337,12 +335,6 @@ iframe {
     color: tomato;
 }
 
-.content p {
-    font: 16px;
-    margin-bottom: 5px;
-    text-align: justify;
-}
-
 .content .penulis {
     font-size: 14px;
     margin-top: -2px;
@@ -360,6 +352,12 @@ iframe {
 
 .content .body {
     display: inline-block;
+}
+
+.content p {
+    font: 16px;
+    margin-bottom: 5px;
+    text-align: justify;
 }
 
 .footer {
