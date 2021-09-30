@@ -139,23 +139,13 @@ body {
 }
 
 .container {
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     width: 900px;
-    background-color: rgb(136, 196, 245);
-    background-image: url(images/background-content.jpg);
-    background-repeat: no-repeat;
-    background-position: 0% 0%;
-    background-size: 100% 100%;
+    position: relative;
 }
 
 .welcome-wrapper {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: black;
     background-color: black;
     /* Old browsers that don't support rgba */
     background-color: rgba(0, 0, 0, 0.75);
@@ -176,6 +166,7 @@ body {
 iframe {
     width: 100%;
     height: 100%;
+    z-index: 333;
 }
 
 .welcome-close {
@@ -187,13 +178,13 @@ iframe {
     position: absolute;
     top: -15px;
     right: -15px;
-    z-index: 333;
+    z-index: 444;
     text-align: center;
 }
 
 .header {
     position: fixed;
-    padding: 20px;
+    padding: 20px 0px 5px 10px;
     z-index: 100;
 }
 
@@ -210,7 +201,6 @@ iframe {
     /* width and color */
 
 }
-
 
 .menu ul {
     box-sizing: border-box;
@@ -243,33 +233,26 @@ iframe {
     background-size: cover;
     height: 500px;
     border-top: 5px solid rgb(30, 177, 235);
-}
-
-.content {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    margin: 50px auto;
     position: relative;
 }
 
-.content .wraper-sosmed {
-    width: 100%;
+.jumbotron .wraper-sosmed {
     align-items: center;
     position: absolute;
-    top: -130px;
+    top: 423px;
+    left: 730px;
     right: 0;
-    left: 10px;
     bottom: 0;
+    z-index: 99;
 }
 
-.content .wraper-sosmed p {
+.jumbotron .wraper-sosmed p {
     color: white;
     font-weight: bold;
     margin-left: 5px;
 }
 
-.sosmed {
+.jumbotron .wraper-sosmed .sosmed {
     text-align: center;
     font-size: 14px;
     line-height: 50px;
@@ -277,6 +260,18 @@ iframe {
     float: left;
     border-radius: 50%;
     cursor: pointer;
+}
+
+
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    margin-top: 50px;
+    background-image: url(images/background-content.jpg);
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    background-size: 100% 100%;
 }
 
 .content .col {
