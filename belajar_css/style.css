@@ -139,14 +139,62 @@ body {
 }
 
 .container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+    background-color: rgb(136, 196, 245);
+    background-image: url(images/background-content.jpg);
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    background-size: 100% 100%;
+}
+
+.welcome-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    background-color: black;
+    /* Old browsers that don't support rgba */
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 111;
+}
+
+.welcome {
+    width: 80%;
+    height: 80%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 222;
+}
+
+iframe {
     width: 100%;
+    height: 100%;
+}
+
+.welcome-close {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 5px solid black;
+    border-radius: 50%;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    z-index: 333;
+    text-align: center;
 }
 
 .header {
     position: fixed;
-    left: 0;
-    right: 0;
     padding: 20px;
+    z-index: 100;
 }
 
 .header .logo {
@@ -154,9 +202,15 @@ body {
     font-weight: bold;
 }
 
-.header h1 {
-    color: tomato;
+.header .logo h1 {
+    font-size: 34px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 0.5px rgb(236, 125, 22);
+    /* width and color */
+
 }
+
 
 .menu ul {
     box-sizing: border-box;
@@ -166,18 +220,20 @@ body {
     display: inline-block;
     margin-right: 10px;
     margin-top: 15px;
-    background-color: rgb(231, 185, 100);
+    background-color: rgb(0, 109, 199);
     border-radius: 10px;
 }
 
 .menu a {
+    font-size: 14px;
+    font-weight: bold;
     text-decoration: none;
-    color: black;
+    color: white;
     padding: 10px;
 }
 
 .menu a:hover {
-    background-color: orange;
+    background-color: rgb(30, 177, 235);
     color: white;
     border-radius: 10px;
 }
@@ -186,35 +242,47 @@ body {
     background-image: url(images/xps.jpg);
     background-size: cover;
     height: 500px;
-    border-top: 5px solid rgb(231, 185, 100);
-    border-bottom: 5px solid orange;
+    border-top: 5px solid rgb(30, 177, 235);
 }
 
 .content {
-    margin: auto;
-    width: 80%;
-    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    margin: 50px auto;
+    position: relative;
 }
 
-.content .galery {
+.content .wraper-sosmed {
+    width: 100%;
+    align-items: center;
+    position: absolute;
+    top: -130px;
+    right: 0;
+    left: 10px;
+    bottom: 0;
+}
+
+.content .wraper-sosmed p {
+    color: white;
+    font-weight: bold;
     margin-left: 5px;
 }
 
-.kotak {
-    width: 100px;
-    height: 100px;
-    background-color: pink;
+.sosmed {
     text-align: center;
-    color: white;
     font-size: 14px;
-    line-height: 100px;
-    margin: 2px;
+    line-height: 50px;
+    margin: 5px;
     float: left;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .content .col {
     width: 100%;
     display: inline-flex;
+    margin-bottom: 40px;
 }
 
 .content .row {
@@ -222,22 +290,50 @@ body {
     background-color: white;
     margin: 5px;
     padding: 10px 15px 5px 15px;
+    position: relative;
 }
 
-.judul {
-    display: inline-flex;
+.ribbon {
+    width: 75px;
+    height: 75px;
+    color: white;
+    position: absolute;
+    left: 350px;
+    top: -40px;
+    border: 3px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: white;
+    background-color: red;
+    font-weight: bold;
+}
+
+.ribbon-blue {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    color: white;
+    position: absolute;
+    left: 350px;
+    top: -40px;
+    color: white;
+    background-color: blue;
+    border: 3px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .content .image-article {
-    float: right;
+    float: left;
     width: 120px;
     height: 80px;
     margin-right: 5px;
     border-radius: 5px;
-}
-
-.content .body {
-    display: inline-block;
 }
 
 .content h2 {
@@ -257,20 +353,25 @@ body {
     margin-top: -2px;
 }
 
-.content .time-article {
-    font-size: 10px;
-    margin-top: -15px;
-}
-
 .content a {
     text-decoration: none;
     color: darkblue;
 }
 
+.content .time-article {
+    font-size: 10px;
+    margin-top: -15px;
+}
+
+.content .body {
+    display: inline-block;
+}
+
 .footer {
+    position: relative;
     padding: 0 10px;
     text-align: right;
-    padding-bottom: 0;
     font-weight: bold;
-    color: grey;
+    background-color: rgb(0, 109, 199);
+    color: white;
 }
