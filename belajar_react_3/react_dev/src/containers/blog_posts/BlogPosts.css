@@ -1,47 +1,214 @@
-.section-title {
-    margin-left: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #4a4a4a;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
-.post {
-    display: flex;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    width: 500px;
-    padding: 10px;
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
-    border-radius: 4px;
-    margin-bottom: 20px;
-    margin-left: 20px;
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
 }
 
-.img-thumb {
-    width: 200px;
-    height: 150px;
-    margin-left: 20px;
+body {
+    line-height: 1;
 }
 
-.img-thumb img {
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    font: 16px/28px arial, sans-serif;
+}
+
+.container {
+    width: inherit;
+    background-color: cyan;
+}
+
+.box {
+    padding: 30px;
+}
+
+.header {
+    font: 48px bold;
 }
 
 .content {
-    flex: 1;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    position: relative;
+    padding: 3px 0 10px 10px;
 }
 
-.content p.title {
-    margin: 0px;
-    font-size: 20px;
+
+.content .image-article {
+    float: left;
+    width: 100px;
+    height: 70px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.content h2 {
+    font-size: 24px;
     font-weight: bold;
-    color: darkblue;
-    margin-bottom: 16px;
+    color: tomato;
 }
 
-.content p.desc {
-    margin: 0px;
-    font-size: 16px;
-    color: #4a4a4a;
+.content .penulis {
+    font-size: 14px;
+    margin-top: -2px;
+}
+
+.content a {
+    text-decoration: none;
+    color: darkblue;
+}
+
+.content .time-article {
+    font-size: 10px;
+    margin-top: -15px;
+}
+
+.content .body {
+    display: block;
+}
+
+.content p {
+    font: 16px;
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+button {
+    background-color: red;
+    font: 16px bold arial;
+    color: white;
+    padding: 2px;
+    border: 10px;
+    height: 30px;
+    width: 70px;
+    border: 0px;
+    border-radius: 5px;
+    cursor: pointer;
 }

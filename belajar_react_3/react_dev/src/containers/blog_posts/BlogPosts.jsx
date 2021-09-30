@@ -1,25 +1,26 @@
-import React, { Component, Fragment } from "react";
-import './BlogPosts.css';
-
-class BlogPosts extends Component {
-
-    render() {
-        return (
-            <Fragment>
-                <div>
-                    <p>Blog Post</p>
-                    <div className="pos">
-                        <div className="img-thumb">
-                            <img src="https://placeimg.com/200/150/tech" alt="" />
-                        </div>
-                        <div className="content">
-                            <p className="title">Dummy Title</p>
-                            <p className="desc">Dummy Body Here</p>
-                        </div>
-                    </div>
+import React, { Fragment } from 'react'
+import './BlogPosts.css'
+export default function BlogPosts(props) {
+    return (
+        <Fragment>
+            <div class="content">
+                <img className="image-article" src="https://www.w3schools.com/css/pineapple.jpg" alt="" />
+                <h2>
+                    {props.data.title}
+                </h2>
+                <p className="penulis">
+                    Ditulis oleh: <a href="google.com">#</a>
+                </p>
+                <p className="time-article">
+                    21 Januari 2021
+                </p>
+                <div className="body">
+                    <p>
+                        {props.data.body}
+                    </p>
                 </div>
-            </Fragment>
-        )
-    }
+                <button onClick={() => props.remove(props.data.id)}>Remove</button>
+            </div>
+        </Fragment>
+    )
 }
-export default BlogPosts;
