@@ -125,7 +125,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-    content: '';
+    content: "";
     content: none;
 }
 
@@ -139,7 +139,9 @@ body {
 }
 
 .container {
-    width: inherit;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
     background-color: cyan;
 }
 
@@ -149,6 +151,7 @@ body {
 
 .header {
     font: 48px bold;
+    margin-bottom: 20px;
 }
 
 .content {
@@ -158,8 +161,8 @@ body {
     margin-top: 50px;
     position: relative;
     padding: 10px;
+    width: inherit;
 }
-
 
 .content .image-article {
     float: left;
@@ -207,21 +210,20 @@ button {
     padding: 2px;
     border: 10px;
     height: 30px;
-    width: 70px;
+    width: 100px;
     border: 0px;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .form {
-    width: inherit;
     background-color: gray;
     border-radius: 5px;
-    padding: 20px;
+    padding: 10px;
     position: relative;
 }
 
-input[type=text],
+input[type="text"],
 textarea {
     width: 100%;
     padding: 12px 20px;
@@ -232,9 +234,9 @@ textarea {
     box-sizing: border-box;
 }
 
-input[type=submit] {
+input[type="submit"] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #4caf50;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -243,6 +245,6 @@ input[type=submit] {
     cursor: pointer;
 }
 
-input[type=submit]:hover {
+input[type="submit"]:hover {
     background-color: #45a049;
 }

@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 // import './index.css';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
 // import StateLessComponent from './components/StateLessComponent';
 // import StateFullComponent from './containers/StateFullComponent';
 // import YouTube from './components/YouTube/YouTube';
-import Home from './containers/home/Home';
-
-ReactDOM.render(<Home />,document.getElementById('root'))
+import Home from "./containers/home/Home";
+ReactDOM.render(<Home />, document.getElementById("root"));
 // ReactDOM.render(<p>Helo Word With DOM</p>,document.getElementById('root'))
 // ReactDOM.render(
 //   <React.StrictMode>
