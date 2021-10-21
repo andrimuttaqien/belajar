@@ -1,6 +1,5 @@
 const redux = require("redux");
 const createStore = redux.createStore;
-// import {} from redux;
 
 const initialState = {
   value: 0,
@@ -10,19 +9,6 @@ const initialState = {
 //Reducer / Agent
 const rootReducer = (state = initialState, action) => {
   console.log(action);
-  //   if (action.type === "ADD_AGE") {
-  //     return {
-  //       ...state,
-  //       age: state.age + 1,
-  //     };
-  //   }
-  //   if (action.type === "CHANGE_VALUE") {
-  //     return {
-  //       ...state,
-  //       value: state.value + action.newValue,
-  //     };
-  //   }
-  //   return state;
   switch (action.type) {
     case "CHANGE_AGE":
       return {
