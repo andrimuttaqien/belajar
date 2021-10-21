@@ -1,5 +1,4 @@
-import React from "react";
-export default function Post(props) {
+export default function BlogPosts(props) {
     return (
         <div class="content" key={props.data.id}>
             <img
@@ -7,7 +6,7 @@ export default function Post(props) {
                 src="https://placeimg.com/150/75/tech"
                 alt=""
             />
-            <h2>{props.data.titile}</h2>
+            <h2>{props.data.title}</h2>
             <p className="penulis">
                 Ditulis oleh: <a href="google.com">#</a>
             </p>
@@ -15,8 +14,17 @@ export default function Post(props) {
             <div className="body">
                 <p>{props.data.body}</p>
             </div>
-            <button onClick={() => props.remove(props.data.id)}>
+            <button
+                className="button-delete"
+                onClick={() => props.remove(props.data.id)}
+            >
                 Remove ({props.data.id})
+            </button>
+            <button
+                className="button-edit"
+                onClick={() => props.handleEdit(props.data)}
+            >
+                Edit ({props.data.id})
             </button>
         </div>
     );

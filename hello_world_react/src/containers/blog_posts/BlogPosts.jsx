@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from "react";
 import axios from "axios";
+import React, { Component, Fragment } from "react";
 import Post from "./Post";
 import AddBlogPost from "./AddBlogPost";
 import "./BlogPosts.css";
@@ -8,25 +8,26 @@ export default class BlogPosts extends Component {
         post: [],
     };
     getData = () => {
-        // fetch("http://localhost:8181/posts")
-        //     .then((res) => res.json())
-        //     .then((json) => {
-        //         this.setState({
-        //             post: json,
-        //         });
-        //     });
-        axios.get("http://localhost:8181/posts").then((res) => {
-            this.setState({
-                post: res.data,
+        axios
+            .get("http://localhost:8181/posts?_sort=id&_order=desc")
+            .then((res) => {
+                this.setState({
+                    post: res.data,
+                });
             });
-        });
     };
-    componentDidMount() {
+    componentDidMount = () => {
         this.getData();
-    }
-
+    };
     handleRemove = (id) => {
         axios.delete("http://localhost:8181/posts/" + id).then(this.getData());
+    };
+    handleEdit = (data) => {
+        const formAddBlogPost = data;
+        // console.log(formAddBlogPost);
+        // axios.put("http://localhost:8181/posts/" + id).then((res) => {
+        //     console.log(res);
+        // });
     };
     render() {
         return (
@@ -37,13 +38,19 @@ export default class BlogPosts extends Component {
                             <h1>Blog Posts</h1>
                         </div>
                         <div className="content">
-                            <AddBlogPost />
+                            <AddBlogPost
+                                getData={() => this.getData()}
+                                handleEdit={() => this.handleEdit()}
+                            />
                             {this.state.post.map((post) => {
                                 return (
                                     <Post
                                         id={post.id}
                                         data={post}
                                         remove={(id) => this.handleRemove(id)}
+                                        handleEdit={(data) =>
+                                            this.handleEdit(data)
+                                        }
                                     />
                                 );
                             })}
