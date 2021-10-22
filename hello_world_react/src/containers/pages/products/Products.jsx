@@ -2,22 +2,14 @@ import React, { Component, Fragment } from "react";
 import CardProduct from "./CardProduct";
 import "./Product.css";
 
-class Product extends Component {
+export default class Product extends Component {
   state = {
-    order: 4,
+    order: 0,
   };
-  handlePlus = () => {
+  handleCounterChange = (newValue) => {
     this.setState({
-      order: this.state.order + 1,
+      order: newValue,
     });
-  };
-  handleMinus = () => {
-    // alert("-");
-    if (this.state.order > 0) {
-      this.setState({
-        order: this.state.order - 1,
-      });
-    }
   };
   render() {
     return (
@@ -31,11 +23,12 @@ class Product extends Component {
                 <div className="count">{this.state.order}</div>
               </div>
             </div>
-            <CardProduct />
+            <CardProduct
+              onCounterChange={(newValue) => this.handleCounterChange(newValue)}
+            />
           </div>
         </div>
       </Fragment>
     );
   }
 }
-export default Product;
