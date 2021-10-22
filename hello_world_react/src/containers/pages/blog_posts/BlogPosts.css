@@ -1,0 +1,128 @@
+.box {
+  padding: 20px;
+}
+
+.header {
+  font: 48px bold;
+  margin-bottom: 20px;
+}
+
+.content {
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  position: relative;
+  padding: 10px;
+  width: inherit;
+}
+
+.content .image-article {
+  float: left;
+  width: 100px;
+  height: 70px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+.content h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: indianred;
+}
+.content h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: tomato;
+}
+
+.content .penulis {
+  font-size: 14px;
+  margin-top: -2px;
+}
+
+.content a {
+  text-decoration: none;
+  color: darkblue;
+}
+
+.content .time-article {
+  font-size: 10px;
+  margin-top: -15px;
+}
+
+.content .body {
+  display: block;
+}
+
+.content p {
+  font: 16px;
+  margin-bottom: 5px;
+  text-align: justify;
+}
+
+.button-delete {
+  background-color: red;
+  font: 16px bold arial;
+  color: white;
+  padding: 10px;
+  border: 10px;
+  height: 50px;
+  width: 150px;
+  border: 0px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  text-align: center;
+}
+.button-edit {
+  background-color: rgb(143, 141, 12);
+  font: 16px bold arial;
+  color: white;
+  padding: 10px;
+  border: 10px;
+  height: 50px;
+  width: 150px;
+  border: 0px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  text-align: center;
+}
+.cursor {
+  cursor: pointer;
+}
+.cursor:hover {
+  color: green;
+}
+.form {
+  background-color: gray;
+  border-radius: 5px;
+  padding: 20px;
+  position: relative;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}

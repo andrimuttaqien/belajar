@@ -1,0 +1,26 @@
+.wrapper {
+  margin: auto;
+  padding: auto;
+}
+
+.header {
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 10px aqua;
+}
+
+.btn {
+  padding: 10px 36px;
+  border: 1px solid blueviolet;
+  outline: none;
+  background: blue;
+  color: white;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 20px;
+  margin: auto;
+}
+
+.btn.hover {
+  background: tomato;
+}
