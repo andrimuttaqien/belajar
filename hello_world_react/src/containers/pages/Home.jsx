@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, createContext } from "react";
 import Header from "./header/Header";
 import BlogPosts from "./blog_posts/BlogPosts";
 import DetailBlogPost from "./blog_posts/DetailBlogPost";
@@ -7,23 +7,27 @@ import LifeCycleComponents from "./life_cycle_components/LifeCycleComponents";
 import Youtube from "./youtube/YouTube";
 import "./Home.css";
 import { BrowserRouter, Route } from "react-router-dom";
-export default class Home extends Component {
-  state = {
-    showComponent: true,
-  };
 
-  componentDidMount() {
-    console.log("componentDidMount");
-    setTimeout(() => {
-      this.setState({
-        showComponent: false,
-      });
-    }, 5000);
-  }
+export const RootContext = createContext();
+const Provider = RootContext.Provider;
 
-  state = {
-    post: [],
-  };
+class Home extends Component {
+  //   state = {
+  //     showComponent: true,
+  //   };
+
+  //   componentDidMount() {
+  //     console.log("componentDidMount");
+  //     setTimeout(() => {
+  //       this.setState({
+  //         showComponent: false,
+  //       });
+  //     }, 5000);
+  //   }
+
+  //   state = {
+  //     post: [],
+  //   };
 
   //   getPostApi = () => {
   //     axios.get("http://localhost:8181/posts").then((result) => {
@@ -53,29 +57,35 @@ export default class Home extends Component {
   //   handleOnChange = (event) => {
   //     console.log("test", event);
   //   };
-
+  state = {
+    totalOrder: 0,
+  };
   render() {
     return (
       <BrowserRouter>
-        <Fragment>
-          <div className="wrapper">
-            <div className="header">
-              <Header />
+        <Provider value={this.state}>
+          <Fragment>
+            <div className="wrapper">
+              <div className="header">
+                <Header />
+              </div>
+              <div className="content">
+                <Route exact path="/" component={BlogPosts}></Route>
+                <Route path="/product" component={Product}></Route>
+                <Route path="/detail/:id" component={DetailBlogPost}></Route>
+                <Route path="/youtube" component={Youtube}></Route>
+                <Route
+                  path="/lifecyclecomponents"
+                  component={LifeCycleComponents}
+                ></Route>
+                {/* <Route path={LifeCycleComponents}></Route> */}
+              </div>
             </div>
-            <div className="content">
-              <Route exact path="/" component={BlogPosts}></Route>
-              <Route path="/product" component={Product}></Route>
-              <Route path="/detail/:id" component={DetailBlogPost}></Route>
-              <Route path="/youtube" component={Youtube}></Route>
-              <Route
-                path="/lifecyclecomponents"
-                component={LifeCycleComponents}
-              ></Route>
-              {/* <Route path={LifeCycleComponents}></Route> */}
-            </div>
-          </div>
-        </Fragment>
+          </Fragment>
+        </Provider>
       </BrowserRouter>
     );
   }
 }
+
+export default Home;

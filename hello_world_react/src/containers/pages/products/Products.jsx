@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import CardProduct from "./CardProduct";
 import "./Product.css";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 class Product extends Component {
   //   state = {
   //     order: 0,
@@ -20,7 +20,8 @@ class Product extends Component {
               <h1>Product</h1>
               <div className="logo"></div>
               <div className="troley">
-                <div className="count">{this.props.order}</div>
+                {/* <div className="count">{this.props.order}</div> */}
+                <div className="count">{0}</div>
               </div>
             </div>
             <CardProduct
@@ -32,9 +33,10 @@ class Product extends Component {
     );
   }
 }
-const mapStateToProps = (state) => {
-  return {
-    order: state.totalOrder,
-  };
-};
-export default connect(mapStateToProps)(Product);
+// const mapStateToProps = (state) => {
+//   return {
+//     order: state.totalOrder,
+//   };
+// };
+// export default connect(mapStateToProps)(Product);
+export default Product;
