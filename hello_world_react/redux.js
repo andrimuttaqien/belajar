@@ -6,7 +6,7 @@ const initialState = {
   age: 17,
 };
 
-//Reducer / Agent
+//2. Reducer / Agent
 const rootReducer = (state = initialState, action) => {
   console.log(action);
   switch (action.type) {
@@ -25,16 +25,16 @@ const rootReducer = (state = initialState, action) => {
   }
 };
 
-//Store
+//1. Store
 const store = createStore(rootReducer);
 console.log(store.getState());
 
-// Subscription
+//4. Subscription
 store.subscribe(() => {
   console.log("Store Change", store.getState());
 });
 
-// Dispatch Action / Task List
+//3. Dispatch Action / Task List
 store.dispatch({ type: "CHANGE_VALUE", newValue: +12 });
 store.dispatch({ type: "CHANGE_AGE" });
 // console.log(store.getState());

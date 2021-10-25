@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from "react";
-import Header from "../pages/header/Header";
-import BlogPosts from "../pages/blog_posts/BlogPosts";
-import DetailBlogPost from "../pages/blog_posts/DetailBlogPost";
-import Product from "../pages/products/Products";
-import LifeCycleComponents from "../pages/life_cycle_components/LifeCycleComponents";
-import Youtube from "../pages/youtube/YouTube";
+import Header from "./header/Header";
+import BlogPosts from "./blog_posts/BlogPosts";
+import DetailBlogPost from "./blog_posts/DetailBlogPost";
+import Product from "./products/Products";
+import LifeCycleComponents from "./life_cycle_components/LifeCycleComponents";
+import Youtube from "./youtube/YouTube";
 import "./Home.css";
 import { BrowserRouter, Route } from "react-router-dom";
-class Home extends Component {
+export default class Home extends Component {
   state = {
     showComponent: true,
   };
@@ -79,4 +79,3 @@ class Home extends Component {
     );
   }
 }
-export default Home;
