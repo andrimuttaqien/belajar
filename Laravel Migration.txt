@@ -1,0 +1,24 @@
+Database Laravel
+di .env coba 1. local dan production, klo diproduction ada warning
+- php artisan migrate
+- php artisan migrate:fresh --path=/database/migrations/fileName.php
+- php artisan migrate:rollback = menjalankan perintah down (hapus tabel)
+- php artisan migrate:fresh = rollback kemudian migrate (hati-hati)
+  di .env coba 1. local dan production, klo diproduction ada warning
+  0 : false
+- php artisan tinker
+  isi data
+  - $user=new App\Models\User / $user=new User;
+  isi data 
+  - $user->name='Andri Muttaqien Akbar';
+  - $user->email='admin@admin.com';
+  - $user->password=bcrypt('admin@admin.com');
+  - $user->save 
+    true / false / error
+  user::create([
+  'title'=>'',
+  'email'=>'',
+  'password'=>bcrypt(''),
+  ]); dengan catatan harus fillable dan tinker di reset
+  menampilkan data
+  $user->all();
