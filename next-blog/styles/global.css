@@ -1,0 +1,22 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+a {
+  color: darkblue;
+  text-decoration: none;
+}
+a:focus,
+a:hover {
+  text-decoration: underline;
+  color: forestgreen;
+}
+/* .navBar ul {
+  list-style-type: none;
+  padding: 0;
+}
+.navBar li {
+  display: inline;
+}
+.navBar li:not(:first-child) {
+  margin-left: 0.75rem;
+} */
