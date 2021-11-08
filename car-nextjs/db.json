@@ -1,0 +1,14 @@
+{
+  "owner-list": [
+    {
+      "vehicle": "Car",
+      "ownerName": "Andri",
+      "details": "Car Andri"
+    },
+    {
+      "vehicle": "Bike",
+      "ownerName": "Landi",
+      "details": "Bike Landi"
+    }
+  ]
+}
