@@ -1,8 +1,9 @@
-import Navbar from "../components/navbar";
-import "../styles/global.css";
 import Head from "next/head";
+import style from "../styles/global.css";
+import NavBar from "../components/navbar";
+import Navbar from "../components/navbar";
+
 function App({ Component, pageProps }) {
-  console.log("[App]:render");
   return (
     <>
       <Head>
@@ -11,7 +12,9 @@ function App({ Component, pageProps }) {
       <header>
         <Navbar />
       </header>
-      <Component {...pageProps} />
+      <main>
+        <Component {...pageProps} />
+      </main>
     </>
   );
 }
