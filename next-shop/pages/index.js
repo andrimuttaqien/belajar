@@ -1,8 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import Title from "../components/Title";
-
-export default function Home() {
+function Home() {
   const products = [
     { id: "1", title: "Product 1", price: 1000 },
     { id: "2", title: "Product 2", price: 2000 },
@@ -15,7 +13,6 @@ export default function Home() {
         <title>Next Shop</title>
       </Head>
       <main className="px-6 py-4">
-        <Title />
         <p className="font-medium">[Todo: display products]</p>
         <ul>
           {products.map((product) => (
@@ -26,3 +23,4 @@ export default function Home() {
     </>
   );
 }
+export default Home;
