@@ -1,6 +1,6 @@
 export class ApiError extends Error {
   constructor(url, status) {
-    super(`'${url}'returned ${status}`);
+    super(`${url} returned ${status}`);
     if (Error.captureStackTrace) {
       Error.captureStackTrace(this, ApiError);
     }
@@ -9,8 +9,8 @@ export class ApiError extends Error {
   }
 }
 
-export async function fetchJson(url) {
-  const response = await fetch(url);
+export async function fetchJson(url, options) {
+  const response = await fetch(url, options);
   if (!response.ok) {
     throw new ApiError(url, response.status);
   }

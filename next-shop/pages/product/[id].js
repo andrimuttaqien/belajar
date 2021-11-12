@@ -1,7 +1,7 @@
-import Head from "next/head";
-import Title from "../../components/Title";
+import Image from "next/image";
 import { getProduct, getProducts } from "../../lib/Products";
 import { ApiError } from "../api/api";
+import Page from "../../components/Page";
 
 export async function getStaticPaths() {
   const products = await getProducts();
@@ -29,15 +29,22 @@ export async function getStaticProps({ params: { id } }) {
 function ProductPage({ product }) {
   console.log("[HomePage]: Render", product);
   return (
-    <>
-      <Head>
-        <title>Detail Product</title>
-      </Head>
-      <main className="px-6 py-4">
-        <Title childern={product.title} />
-        <p>{product.desc}</p>
-      </main>
-    </>
+    <Page title={product.title}>
+        <div className="flex flex-col lg:flex-row">
+          <div>
+            <Image
+              src={product.pictureUrl}
+              alt={product.pictureUrl}
+              width={320}
+              height={240}
+            />
+          </div>
+          <div className="flex-1 lg:ml-4">
+            <p className="text-sm">{product.desc}</p>
+            <p className="text-lg font-bold mt-2">{product.price}</p>
+          </div>
+        </div>
+    </Page>
   );
 }
 export default ProductPage;

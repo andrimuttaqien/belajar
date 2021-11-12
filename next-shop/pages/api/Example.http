@@ -1,0 +1,41 @@
+GET http://localhost:1337/cart-items
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjM2Njk3MzkzLCJleHAiOjE2MzkyODkzOTN9.sAucnbkOU27D4ILg3KbphpdIwNjCRf07Bvy4xkBYYjM
+###
+POST http://localhost:1337/auth/local
+Content-Type: application/json
+
+ {
+     "identifier":"andri@example.com",
+     "password":"andri@example.com"
+ }
+
+###
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+ {
+     "email":"andri@example.com",
+     "password":"andri@example.com"
+ }
+
+###
+http://localhost:1337/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjM2Njk3MzkzLCJleHAiOjE2MzkyODkzOTN9.sAucnbkOU27D4ILg3KbphpdIwNjCRf07Bvy4xkBYYjM
+
+
+###
+POST http://localhost:1337/auth/local/register
+Content-Type: application/json
+
+ {
+     "username":"Charlie",
+     "email":"charlie@example.com",
+     "password":"charlie@example.com"
+ }
+
+###
+GET https://ws.akademik.itb.ac.id/kelas?&kd_strata=eq.S2&semester=eq.2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaXNzaW9uIiwiZXhwIjoxNjQwOTcwMDAwfQ.sC08FyUv466d16NhmaRiU5FBlwoZpqGIlqlNWGXAQ1I
+
+###
+GET http://localhost:3000/api/user
