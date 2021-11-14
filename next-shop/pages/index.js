@@ -10,13 +10,6 @@ export async function getStaticProps() {
   };
 }
 function Home({ products }) {
-  //   const products = [
-  //     { id: "1", title: "Product 1", price: 1000 },
-  //     { id: "2", title: "Product 2", price: 2000 },
-  //     { id: "3", title: "Product 3", price: 3000 },
-  //   ];
-  //   console.log(products);
-
   console.log("[HomePage]: Render");
   return (
     <Page title="Indoor Plants">

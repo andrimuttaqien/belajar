@@ -1,7 +1,5 @@
 import Head from "next/head";
-import style from "../styles/global.css";
 import NavBar from "../components/navbar";
-import Navbar from "../components/navbar";
 
 function App({ Component, pageProps }) {
   return (
@@ -10,7 +8,7 @@ function App({ Component, pageProps }) {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <header>
-        <Navbar />
+        <NavBar />
       </header>
       <main>
         <Component {...pageProps} />

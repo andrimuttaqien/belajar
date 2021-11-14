@@ -1,6 +1,6 @@
 import { fetchJson } from "../pages/api/api";
-// const { CMS_URL } = process.env;
-const CMS_URL = "http://localhost:1337";
+const { CMS_URL } = process.env;
+// const CMS_URL = "http://localhost:1337";
 
 export async function getProducts() {
   const products = await fetchJson(`${CMS_URL}/products`);

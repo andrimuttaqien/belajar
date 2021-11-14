@@ -1,6 +1,6 @@
 export class ApiError extends Error {
   constructor(url, status) {
-    super(`${url} returned ${status}`);
+    super(`'${url}' returned ${status}`);
     if (Error.captureStackTrace) {
       Error.captureStackTrace(this, ApiError);
     }
