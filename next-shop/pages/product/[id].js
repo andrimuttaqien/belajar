@@ -1,9 +1,9 @@
-
 import Page from "../../components/Page";
 import Image from "next/image";
 import { getProduct, getProducts } from "../../lib/Products";
 import { ApiError } from "../api/api";
 import { useUser } from "../../hooks/user";
+import AddToCardWidget from "../../components/AddToCardWidget";
 
 export async function getStaticPaths() {
   const products = await getProducts();
@@ -32,8 +32,8 @@ export async function getStaticProps({ params: { id } }) {
 
 export default function ProductPage({ product }) {
   const user = useUser();
-  console.log("Siapa : User ", user);
-  console.log("Product ", product);
+  //   console.log("Siapa : User ", user);
+  //   console.log("Product ", product);
   return (
     <Page title={product.title}>
       <div className="flex flex-col lg:flex-row">
@@ -48,7 +48,7 @@ export default function ProductPage({ product }) {
         <div className="flex-1 lg:ml-4">
           <p className="text-sm">{product.desc}</p>
           <p className="text-lg font-bold mt-2">{product.price}</p>
-          {/* <p>{user.name}</p> */}
+          {user && <AddToCardWidget productId={product.id} />}
         </div>
       </div>
     </Page>
