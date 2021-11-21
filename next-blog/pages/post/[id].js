@@ -1,15 +1,13 @@
-
 import Page from "../../components/Page";
-import Image from "next/image";
-import { getProduct, getProducts } from "../../lib/Products";
+import Image from "next/dist/client/image";
+import { getPosts, getPost } from "../../lib/posts";
 import { ApiError } from "../api/api";
-import { useUser } from "../../hooks/user";
 
 export async function getStaticPaths() {
-  const products = await getProducts();
+  const posts = await getPosts();
   return {
-    paths: products.map((product) => ({
-      params: { id: product.id.toString() },
+    paths: posts.map((post) => ({
+      params: { id: post.id.toString() },
     })),
     fallback: "blocking",
   };
@@ -17,9 +15,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { id } }) {
   try {
-    const product = await getProduct(id);
+    const post = await getPost(id);
     return {
-      props: { product },
+      props: { post },
       revalidate: parseInt(process.env.REVALIDATE_SECONDS),
     };
   } catch (err) {
@@ -30,24 +28,22 @@ export async function getStaticProps({ params: { id } }) {
   }
 }
 
-export default function ProductPage({ product }) {
-  const user = useUser();
-  console.log("Siapa : User ", user);
-  console.log("Product ", product);
+export default function PostPageDetail({ post }) {
+  console.log(post);
   return (
-    <Page title={product.title}>
+    <Page title="Detail Post">
       <div className="flex flex-col lg:flex-row">
         <div>
           <Image
-            src={product.pictureUrl}
-            alt={product.pictureUrl}
+            src={post.pictureUrl}
+            alt={post.pictureUrl}
             width={320}
             height={240}
           />
         </div>
         <div className="flex-1 lg:ml-4">
-          <p className="text-sm">{product.desc}</p>
-          <p className="text-lg font-bold mt-2">{product.price}</p>
+          <p className="text-sm">{post.body}</p>
+          {/* <p className="text-lg font-bold mt-2">{post.author}</p> */}
           {/* <p>{user.name}</p> */}
         </div>
       </div>

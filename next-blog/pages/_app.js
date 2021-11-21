@@ -1,18 +1,12 @@
-import Head from "next/head";
-import NavBar from "../components/navbar";
-
+import "../styles/global.css";
+import { QueryClient, QueryClientProvider } from "react-query";
+const queryClient = new QueryClient();
 function App({ Component, pageProps }) {
   return (
     <>
-      <Head>
-        <link rel="icon" href="/favicon.png" />
-      </Head>
-      <header>
-        <NavBar />
-      </header>
-      <main>
+      <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
-      </main>
+      </QueryClientProvider>
     </>
   );
 }

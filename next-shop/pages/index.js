@@ -1,6 +1,6 @@
+import Page from "../components/Page";
 import { getProducts } from "../lib/Products";
 import ProductCard from "../components/ProductCard";
-import Page from "../components/Page";
 
 export async function getStaticProps() {
   const products = await getProducts();
@@ -10,7 +10,6 @@ export async function getStaticProps() {
   };
 }
 function Home({ products }) {
-  console.log("[HomePage]: Render");
   return (
     <Page title="Indoor Plants">
       <ul className="grid grid-cols-1 lg:grid-cols-3 gap-4">

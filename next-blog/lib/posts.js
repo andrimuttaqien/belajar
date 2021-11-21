@@ -1,33 +1,21 @@
-import { readdir, readFile } from "fs/promises";
-import matter from "gray-matter";
-import { marked } from "marked";
-export async function getPost(slug) {
-  //   const data = await readFile(`contents/posts/${slug}.json`, "utf8");
-  //   return JSON.parse(data);
-  const source = await readFile(`contents/posts/${slug}.md`, "utf8");
-  //   return source;
-  const {
-    data: { date, title },
-    content,
-  } = matter(source);
-  const body = marked(content);
-  return { date, title, body };
-}
+import { fetchJson } from "../pages/api/api";
+const { CMS_URL } = process.env;
 
 export async function getPosts() {
-  const slugs = await getSlugs();
-  const posts = [];
-  for (const slug of slugs) {
-    const post = await getPost(slug);
-    posts.push({ slug, ...post });
-  }
-  return posts;
+  const posts = await fetchJson(`${CMS_URL}/posts`);
+  return posts.map(stripPost);
 }
 
-export async function getSlugs() {
-  const suffix = ".md";
-  const files = await readdir("contents/posts");
-  return files
-    .filter((file) => file.endsWith(suffix))
-    .map((file) => file.slice(0, -suffix.length));
+export async function getPost(id) {
+  const post = await fetchJson(`${CMS_URL}/posts/${id}`);
+  return stripPost(post);
+}
+
+function stripPost(post) {
+  return {
+    id: post.id,
+    title: post.title,
+    body: post.body,
+    pictureUrl: CMS_URL + post.image.url,
+  };
 }

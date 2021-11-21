@@ -4,8 +4,12 @@ const { CMS_URL } = process.env;
 
 export async function getProducts() {
   const products = await fetchJson(`${CMS_URL}/products`);
-  // const products = await fetchJson("http://localhost:1337/products/");
   return products.map(stripProduct);
+}
+
+export async function getProduct(id) {
+  const product = await fetchJson(`${CMS_URL}/products/${id}`);
+  return stripProduct(product);
 }
 
 function stripProduct(product) {
@@ -16,10 +20,4 @@ function stripProduct(product) {
     desc: product.description,
     pictureUrl: CMS_URL + product.picture.url,
   };
-}
-
-export async function getProduct(id) {
-  const product = await fetchJson(`${CMS_URL}/products/${id}`);
-  // const product = await fetchJson(`http://localhost:1337/products/${id}`);
-  return stripProduct(product);
 }
