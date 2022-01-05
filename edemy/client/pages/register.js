@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { SyncOutlined } from "@ant-design/icons";
+import Link from "next/link";
 export default function Register() {
   const [name, setName] = useState("Andri");
   const [email, setEmail] = useState("andri@gmail.com");
@@ -13,14 +14,11 @@ export default function Register() {
     // console.table({ name, email, password });
     try {
       setLoading(true);
-      const { data } = await axios.post(
-        `${process.env.NEXT_PUBLIC_API}/register`,
-        {
-          name,
-          email,
-          password,
-        }
-      );
+      const { data } = await axios.post(`api/register`, {
+        name,
+        email,
+        password,
+      });
       toast.success("Registration succesfull, please login");
       setLoading(false);
     } catch (err) {
@@ -72,6 +70,12 @@ export default function Register() {
             </button>
           </div>
         </form>
+        <p className="text-center p-3">
+          Already Register ?{" "}
+          <Link href={"/login"}>
+            <a>Login</a>
+          </Link>
+        </p>
       </div>
     </>
   );
