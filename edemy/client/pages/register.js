@@ -1,9 +1,12 @@
-import { Button } from "antd";
-import { useState } from "react";
+// Nextjs & React
 import axios from "axios";
 import { toast } from "react-toastify";
-import { SyncOutlined } from "@ant-design/icons";
+import { useState } from "react";
 import Link from "next/link";
+// Style Framework
+import { Button } from "antd";
+import { SyncOutlined } from "@ant-design/icons";
+
 export default function Register() {
   const [name, setName] = useState("Andri");
   const [email, setEmail] = useState("andri@gmail.com");

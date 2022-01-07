@@ -1,5 +1,6 @@
 import User from "../models/user";
 import { hashPassword, comparePassword } from "../utils/auth";
+import jwt from "jsonwebtoken";
 export const register = async (req, res) => {
   //   console.log(req.body);
   //   res.json("Register user response from controllers");
@@ -29,5 +30,33 @@ export const register = async (req, res) => {
   } catch (err) {
     console.log(err);
     return res.status(400).send("Error, Try Again");
+  }
+};
+
+export const login = async (req, res) => {
+  try {
+    // console.log(req.body);
+    const { email, password } = req.body;
+    // Check if DB has user with that email
+    const user = await User.findOne({ email }).exec();
+    if (!user) return res.status(400).send("No user found");
+    const match = await comparePassword(password, user.password);
+    if (!match) return res.status(400).send("Password invalid");
+    // Create sign JWT
+    const token = jwt.sign({ _id: user.id }, process.env.JWT_SECRET, {
+      expiresIn: "7d",
+    });
+    // Return user and token to client, exclude hashed password
+    user.password = undefined;
+    // Send token in cookie
+    res.cookie("token", token, {
+      httpOnly: true,
+      // secure: true, // only work on https
+    });
+    // Send user as json response
+    res.json(user);
+  } catch (err) {
+    console.log(err);
+    return res.status(400).send("Error try again");
   }
 };

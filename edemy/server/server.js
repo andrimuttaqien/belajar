@@ -8,7 +8,7 @@ require("dotenv").config();
 // create express app
 const app = express();
 
-// Mongo DB
+// Mongo DB connection
 mongoose
   .connect(process.env.DATABASE, {
     // userNewUrlParser: true,
