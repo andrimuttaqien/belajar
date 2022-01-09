@@ -28,7 +28,7 @@ const TopNav = () => {
   }, [process.browser && window.location.pathname]);
 
   const logout = async () => {
-    dispatch({ type: "LOGOUT" });
+    dispatch = { type: "LOGOUT" };
     window.localStorage.removeItem("user");
     const { data } = await axios.get("/api/logout");
     toast(data.message);

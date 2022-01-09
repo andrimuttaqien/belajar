@@ -1,8 +1,10 @@
 // Nextjs & React
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useState } from "react";
 import Link from "next/link";
+import { useState, useContext } from "react";
+import { Context } from "../context";
+import { useRouter } from "next/router";
 // Style Framework
 import { Button } from "antd";
 import { SyncOutlined } from "@ant-design/icons";
@@ -11,6 +13,15 @@ export default function Login() {
   const [email, setEmail] = useState("andri@gmail.com");
   const [password, setPassword] = useState("andri@gmail.com");
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
+  // Context
+  const {
+    state: { user },
+    dispatch,
+  } = useContext(Context);
+  console.log(user);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.table({ name, email, password });
@@ -20,8 +31,15 @@ export default function Login() {
         email,
         password,
       });
-      console.log("Login Response", data);
+      // console.log("Login Response", data);
       // setLoading(false);
+      dispatch({
+        type: "LOGIN",
+        payload: data,
+      });
+      // Save in local stroage
+      window.localStorage.setItem("user", JSON.stringify(data));
+      router.push("/");
     } catch (err) {
       toast.error(err.response.data);
       setLoading(false);
