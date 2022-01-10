@@ -1,35 +1,36 @@
 import User from "../models/user";
 import { hashPassword, comparePassword } from "../utils/auth";
 import jwt from "jsonwebtoken";
+
 export const register = async (req, res) => {
-  //   console.log(req.body);
-  //   res.json("Register user response from controllers");
   try {
-    //   console.log(req.body)
+    // console.log(req.body);
     const { name, email, password } = req.body;
-    // Validation
+    // validation
     if (!name) return res.status(400).send("Name is required");
     if (!password || password.length < 6) {
       return res
         .status(400)
-        .send("Password is required and should be min 6 character");
+        .send("Password is required and should be min 6 characters long");
     }
-    let userEmailExist = await User.findOne({ email }).exec();
-    if (userEmailExist) return res.status(400).send("Email already exist");
-    // Hash password
+    let userExist = await User.findOne({ email }).exec();
+    if (userExist) return res.status(400).send("Email is taken");
+
+    // hash password
     const hashedPassword = await hashPassword(password);
-    // Save register
+
+    // register
     const user = new User({
       name,
       email,
       password: hashedPassword,
     });
     await user.save();
-    // console.log("Saved User", user);
+    // console.log("saved user", user);
     return res.json({ ok: true });
   } catch (err) {
     console.log(err);
-    return res.status(400).send("Error, Try Again");
+    return res.status(400).send("Error. Try again.");
   }
 };
 
@@ -37,43 +38,44 @@ export const login = async (req, res) => {
   try {
     // console.log(req.body);
     const { email, password } = req.body;
-    // Check if DB has user with that email
+    // check if our db has user with that email
     const user = await User.findOne({ email }).exec();
     if (!user) return res.status(400).send("No user found");
+    // check password
     const match = await comparePassword(password, user.password);
-    if (!match) return res.status(400).send("Password invalid");
-    // Create sign JWT
-    const token = jwt.sign({ _id: user.id }, process.env.JWT_SECRET, {
+    // create signed jwt
+    const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
-    // Return user and token to client, exclude hashed password
+    // return user and token to client, exclude hashed password
     user.password = undefined;
-    // Send token in cookie
+    // send token in cookie
     res.cookie("token", token, {
       httpOnly: true,
-      // secure: true, // only work on https
+      // secure: true, // only works on https
     });
-    // Send user as json response
+    // send user as json response
     res.json(user);
   } catch (err) {
     console.log(err);
-    return res.status(400).send("Error try again");
+    return res.status(400).send("Error. Try again.");
   }
 };
-
-// export const logout = async (req, res) => {
-//   try {
-//     res.clearCookies("token");
-//     return res.json({ message: "Sign out success" });
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
 
 export const logout = async (req, res) => {
   try {
     res.clearCookie("token");
     return res.json({ message: "Signout success" });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const currentUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id).select("-password").exec();
+    console.log("CURRENT_USER", user);
+    return res.json(user);
   } catch (err) {
     console.log(err);
   }

@@ -1,17 +1,28 @@
 // Nextjs & React
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 // Style Framework
 import { Button } from "antd";
 import { SyncOutlined } from "@ant-design/icons";
+import { Context } from "../context";
 
 export default function Register() {
   const [name, setName] = useState("Andri");
   const [email, setEmail] = useState("andri@gmail.com");
   const [password, setPassword] = useState("andri@gmail.com");
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
+  const {
+    state: { user },
+  } = useContext(Context);
+
+  useEffect(() => {
+    if (user !== null) router.push("/");
+  }, [user]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.table({ name, email, password });

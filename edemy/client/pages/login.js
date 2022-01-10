@@ -2,7 +2,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 import Link from "next/link";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Context } from "../context";
 import { useRouter } from "next/router";
 // Style Framework
@@ -20,7 +20,10 @@ export default function Login() {
     state: { user },
     dispatch,
   } = useContext(Context);
-  console.log(user);
+  //   console.log(user);
+  useEffect(() => {
+    if (user !== null) router.push("/");
+  }, [user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

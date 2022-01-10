@@ -20,7 +20,7 @@ const TopNav = () => {
 
   const { state, dispatch } = useContext(Context);
   const { user } = state;
-  console.log(user);
+  //   console.log(user);
 
   const router = useRouter();
 
@@ -29,18 +29,12 @@ const TopNav = () => {
   }, [process.browser && window.location.pathname]);
 
   const logout = async () => {
-    dispatch = { type: "LOGOUT" };
+    dispatch({ type: "LOGOUT" });
     window.localStorage.removeItem("user");
     const { data } = await axios.get("/api/logout");
     toast(data.message);
     router.push("/login");
   };
-  // useEffect(
-  //   (logout) => {
-  //     router.push("/login");
-  //   },
-  //   [logout]
-  // );
 
   return (
     <Menu mode="horizontal" selectedKeys={[current]}>
